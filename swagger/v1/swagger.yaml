@@ -1,0 +1,52 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/users":
+    post:
+      summary: Creates a user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pseudo:
+                  type: string
+              required:
+              - pseudo
+    get:
+      summary: Retrieves all users
+      tags:
+      - Users
+      responses:
+        '200':
+          description: users
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  pseudo:
+                    type: string
+                  decimal_index:
+                    type: decimal
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+                required:
+                - pseudo
+                - decimal_index
