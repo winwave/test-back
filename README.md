@@ -65,7 +65,7 @@ There are many solution for that, but the performance and the complexity is not 
 
 This is the first solution that I thought when I saw the test.
 
-We will store all of the case of pseudo with three letters from A-Z in database, so we have to create $26^3 = 17567$ lines.
+We will store all of the case of pseudo with three letters from A-Z in database, so we have to create `26^3 = 17567` lines.
 
 Each pseudo in the table will be tagged by un boolean `available=true` by default. When a new user is created with a pseudo, the tag `available` of the pseudo will be set to `false`.
 
@@ -75,7 +75,7 @@ This solution is not good, it cost the volume in database and in the case pseudo
 
 ##### 2. Basic loop
 
-This is the basic solution with the complexity `$O(n^3)$` to find a pseudo available
+This is the basic solution with the complexity `O(n^3)` to find a pseudo available
 
 ```ruby
 [A...Z].each do |first|
@@ -86,7 +86,7 @@ This is the basic solution with the complexity `$O(n^3)$` to find a pseudo avail
   end
 end
 ```
-Complexity `$O(n^3)$`. I don't like that
+Complexity `O(n^3)`. I don't like that
 
 ##### 3. Vector 3 dimensions
 
@@ -108,8 +108,8 @@ Each letter will be converted to a number and revert(letter <-> decimal). Exampl
 
 So we can convert a pseudo to a number and revert. Example:
 
-- `$ABC = 1*(26^2) + 2*26 + 3 = 731$` Function in project: `pseudo_to_decimal`
-- `$731 = 1*(26^2) + 2*26 + 3 => ABC$` Function in project: `decimal_to_pseudo`
+- `ABC = 1*(26^2) + 2*26 + 3 = 731` Function in project: `pseudo_to_decimal`
+- `731 = 1*(26^2) + 2*26 + 3 => ABC` Function in project: `decimal_to_pseudo`
 
 In the table `User` there are 2 attributes: `pseudo` and `decimal_index`. The value in `decimal_index` is the value of `pseudo` after converted.
 
@@ -124,6 +124,8 @@ Now the problem become: **For an array number, find a number is not in the array
 - if `array[index] = index` there are no number available in array from `[0...index]`. Example: [0,1,2,3,4,6], from 0 to 4 there are any number available.
 - if `array[index] > index` so there are at least a number available equal or less than `index`
 - So if `array[index] = index` and `array[index +1] > index+1`, the value `index +1` is the number available.
-- With these conditions above, we can apply the idea of the [binary search algorithm](https://en.wikipedia.org/wiki/Binary_search_algorithm) in this problem
+- With these conditions above, we can apply the idea of the [binary search algorithm](https://en.wikipedia.org/wiki/Binary_search_algorithm) in this problem.
+
+-> Complexity: `O(log(n^3)` in the worst case.
 
 ![binary_search](./vendor/readme_img/binary_search.gif)
