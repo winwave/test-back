@@ -8,7 +8,6 @@ AllCops:
     - 'vendor/**/*'
     - 'tmp/**/*'
     - 'config/**/*'
-    - 'test/**/*'
     - 'spec/**/*'
     - 'db/**/*'
     - 'node_modules/**/*'

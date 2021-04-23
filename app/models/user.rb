@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  REGEXP_PSEUDO = /[A-Z]/.freeze
+  REGEXP_PSEUDO = /\A[A-Z]+\z/.freeze
   PSEUDO_LENGTH = 3
 
   include Utils
 
-  validates :pseudo, format: { with: REGEXP_PSEUDO }, length: { is: PSEUDO_LENGTH }
+  validates :pseudo, length: { is: PSEUDO_LENGTH }, format: { with: REGEXP_PSEUDO }
 
   def find_decimal_index_available
     arr_dec = User.all.pluck(:decimal_index).sort

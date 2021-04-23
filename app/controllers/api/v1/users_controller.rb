@@ -15,14 +15,17 @@ class Api::V1::UsersController < ApplicationController
       message = "The #{user_params[:pseudo]} was exists but your registration is also complete with pseudo #{@user[:pseudo]}. Do you want to modify that ?"
     else
       @user = User.new(user_params)
+
+      return render json: { message: "Bad format of pseudo" }, status: :unprocessable_entity unless @user.valid?
+
       @user.add_decimal_index(user_params[:pseudo])
       message = "your registration with pseudo #{user_params[:pseudo]} is now complete"
     end
 
     if @user.save
-      render json: { message: message, status: :created }
+      render json: { message: message }, status: :created
     else
-      render json: { message: message, status: :unprocessable_entity }
+      render json: { message: "Bad format of pseudo" }, status: :unprocessable_entity
     end
   end
 
