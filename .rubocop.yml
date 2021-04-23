@@ -1,0 +1,213 @@
+# This is the configuration used to check the rubocop source code.
+
+##########################################################################
+# GLOBAL CONFIG
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'config/**/*'
+    - 'test/**/*'
+    - 'spec/**/*'
+    - 'db/**/*'
+    - 'node_modules/**/*'
+    - 'config.ru'
+    - 'Gemfile'
+    - 'Rakefile'
+  TargetRubyVersion: 2.6.3
+
+##########################################################################
+# FILE SPECIFIC CONFIG
+
+Lint/PercentStringArray:
+  Exclude:
+    - 'spec/queries/*/**.rb'
+
+Layout/ArrayAlignment:
+  Exclude:
+    - 'spec/queries/*/**.rb'
+
+##########################################################################
+# LAYOUT
+
+Layout/DotPosition:
+  Enabled: true
+
+Layout/MultilineAssignmentLayout:
+  Enabled: true
+  EnforcedStyle: new_line
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+
+Layout/BlockAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: start_of_block
+
+Layout/CaseIndentation:
+  Enabled: true
+  EnforcedStyle: end
+
+Layout/LineLength:
+  Enabled: false
+
+##########################################################################
+# LINT
+
+Lint/AmbiguousRegexpLiteral:
+  Enabled: false
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+##########################################################################
+# METRICS
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockNesting:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+##########################################################################
+# STYLE
+
+Style/Encoding:
+  Enabled: true
+
+# Strings will be immutable by default in Ruby 3 (https://bugs.ruby-lang.org/issues/11473)
+# It also improves the memory usage (https://www.mikeperham.com/2018/02/28/ruby-optimization-with-one-magic-comment/)
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/PercentLiteralDelimiters:
+  Enabled: true
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Style/Alias:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/BeginBlock:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/CommentAnnotation:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/EndBlock:
+  Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/ModuleFunction:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/NegatedWhile:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/ParallelAssignment:
+  Enabled: false
+
+Style/PerlBackrefs:
+  Enabled: false
+
+Style/Semicolon:
+  Enabled: false
+
+Style/SignalException:
+  Enabled: false
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Style/SingleLineMethods:
+  Enabled: false
+
+Style/SpecialGlobalVars:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/WhileUntilModifier:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+##########################################################################
+# NAMING
+
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: required
+
+Naming/VariableNumber:
+  Enabled: false

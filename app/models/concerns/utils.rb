@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Utils
   extend ActiveSupport::Concern
   ##########################################################################
@@ -14,7 +16,7 @@ module Utils
     decimal_value = 0
     pseudo.split('').each_with_index do |letter, index|
       power = pseudo.length - index - 1
-      decimal_value += letter_to_decimal(letter) * (AZ_LENGTH ** power)
+      decimal_value += letter_to_decimal(letter) * (AZ_LENGTH**power)
     end
 
     decimal_value
@@ -45,7 +47,7 @@ module Utils
     left = 0
     right = arr.length - 1
     while left <= right
-      mid = ((left + right)/2).floor
+      mid = ((left + right) / 2).floor
       dec_index = MIN_INDEX + mid
       if arr[mid] == dec_index
         return dec_index + 1 if arr[mid + 1] > dec_index + 1

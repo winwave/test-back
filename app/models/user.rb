@@ -1,5 +1,6 @@
-class User < ApplicationRecord
+# frozen_string_literal: true
 
+class User < ApplicationRecord
   REGEXP_PSEUDO = /[A-Z]/.freeze
   PSEUDO_LENGTH = 3
 
@@ -20,12 +21,12 @@ class User < ApplicationRecord
     decimal_index = find_decimal_index_available
     pseudo = decimal_to_pseudo(decimal_index)
 
-    self.update(pseudo: pseudo, decimal_index: decimal_index)
+    update(pseudo: pseudo, decimal_index: decimal_index)
   end
 
   def add_decimal_index(pseudo)
     decimal_index = pseudo_to_decimal(pseudo)
 
-    self.update(decimal_index: decimal_index)
+    update(decimal_index: decimal_index)
   end
 end

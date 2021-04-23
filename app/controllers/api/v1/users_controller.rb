@@ -1,5 +1,6 @@
-class Api::V1::UsersController < ApplicationController
+# frozen_string_literal: true
 
+class Api::V1::UsersController < ApplicationController
   # GET /api/v1/users
   def index
     @users = User.all
@@ -8,7 +9,6 @@ class Api::V1::UsersController < ApplicationController
 
   # POST /api/v1/users
   def create
-
     if User.exists?(user_params)
       @user = User.new
       @user.create_new_pseudo
@@ -24,7 +24,6 @@ class Api::V1::UsersController < ApplicationController
     else
       render json: { message: message, status: :unprocessable_entity }
     end
-
   end
 
   private
