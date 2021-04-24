@@ -56,8 +56,8 @@ Retrieve all users in the database, we don't need to open database to check the 
 - Concerns
 - Complexity `O(log(n))` with the binary search algorithm
 
-### Solution for the research a pseudo available
-This is the main problem in this test and It's so interesting.
+### Solution for the research an available pseudo
+This is the main problem of the test and It's so interesting.
 
 There are many solutions for that, but the performance and the complexity are not the same.
 
@@ -69,13 +69,13 @@ We will store all of the case of pseudo with three letters from A-Z in database,
 
 Each pseudo in the table will be tagged with a boolean `available=true` by default. When a new user is created with a pseudo, the tag `available` of the pseudo will be set to `false`.
 
-So, we can check if a pseudo is available or not and find a new pseudo available by using request SQL in this table.
+So, we can check if a pseudo is available or not and find a new available pseudo by using request SQL in this table.
 
-This solution is not good, it creates too many volumes in the database and in the case pseudo has 4, 5 or 6... letter we have to insert so many lines.
+This solution is not good, it creates too many volumes in the database and in the case pseudo has 4, 5 or 6... letter we have to insert too many lines.
 
 #### 2. Basic loop
 
-This is the basic solution, the complexity to find a pseudo available is `O(n^3)` 
+This is the basic solution, the complexity to find an available pseudo is `O(n^3)` 
 
 ```ruby
 [A...Z].each do |first|
@@ -92,7 +92,7 @@ This solution is also not good
 
 A pseudo can be like a vector in the dimension 3D `O(x,y,z)` with the value in `Ox`, `Oy`, `Oz` is `[A...Z]` instead of `1, 2 ,...]`.
 ![vector](./vendor/readme_img/vertor.png)  
-Each pseudo is a vector, We can use the notion vector in Math to find the pseudo available like to find a vector available in the coordinates 3 dimensions.
+Each pseudo is a vector, We can use the notion vector in Math to find the available pseudo like to find an available vector in the coordinates 3 dimensions.
 
 Now, I don't have the solution for this idea, but for me it is an interesting idea and we can use it to find the pseudo near the pseudo exist.
 
@@ -113,7 +113,7 @@ So we can convert a pseudo to a number and revert. Example:
 
 In the table `User` there are 2 attributes: `pseudo` and `decimal_index`. The value in `decimal_index` is the value of `pseudo` after converted.
 
-To find the new pseudo available, we will find a new `decimal_index` available and convert the value found to pseudo.
+To find the new available pseudo, we will find a new available `decimal_index` and convert the value founded to pseudo.
 
 `AAA = 26^2 + 26 + 1 = 703` so the number minimum for `decimal_index` is 730
 
@@ -121,9 +121,9 @@ Now the problem becomes: **For an array number, find a number is not in the arra
 
 - Sort the array
 - `array[index]` is always equal or greater than `index`
-- If `array[index] = index` there is any number available in the array from `[0...index]`. Example: [0,1,2,3,4,6], from 0 to 4 there are any number available.
-- If `array[index] > index` so there is at least a number available equal or less than `index`
-- So if `array[index] = index` and `array[index +1] > index+1`, the value `index +1` is the number available.
+- If `array[index] = index` there is any available number in the array from `[0...index]`. Example: [0,1,2,3,4,6], from 0 to 4 there are any available number.
+- If `array[index] > index` so there is at least an available number equal or less than `index`
+- So if `array[index] = index` and `array[index +1] > index+1`, the value `index +1` is the available number that we found.
 - With these conditions above, we can apply the idea of the [binary search algorithm](https://en.wikipedia.org/wiki/Binary_search_algorithm) in this problem.
 
 -> Complexity: `O(log(n^3)` in the worst case.
