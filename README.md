@@ -115,7 +115,7 @@ In the table `User` there are 2 attributes: `pseudo` and `decimal_index`. The va
 
 To find the new available pseudo, we will find a new available `decimal_index` and convert the value founded to pseudo.
 
-`AAA = 26^2 + 26 + 1 = 703` so the number minimum for `decimal_index` is 730
+`AAA = 26^2 + 26 + 1 = 703` so the value minimum for `decimal_index` is 730
 
 Now the problem becomes: **For an array number, find a number is not in the array (min_value = 0, max_vale = n)**
 
