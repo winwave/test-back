@@ -12,7 +12,7 @@ class Api::V1::UsersController < ApplicationController
     if User.exists?(user_params)
       @user = User.new
       @user.create_new_pseudo
-      message = "The #{user_params[:pseudo]} was exists but your registration is also complete with pseudo #{@user[:pseudo]}. Do you want to modify that ?"
+      message = "The #{user_params[:pseudo]} already exist but your registration was completed with auto generated pseudo #{@user[:pseudo]}. Do you want to modify it ?"
     else
       @user = User.new(user_params)
 

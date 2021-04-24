@@ -86,7 +86,7 @@ RSpec.describe "/api/v1/users", type: :request do
         it "renders the message question with new pseudo in JSON response" do
           post api_v1_users_url,
                params: { user: valid_attributes }, headers: valid_headers, as: :json
-          expect(body_as_json).to match("message" => "The AAA was exists but your registration is also complete with pseudo AAB. Do you want to modify that ?")
+          expect(body_as_json).to match("message" => "The AAA already exist but your registration was completed with auto generated pseudo AAB. Do you want to modify it ?")
         end
       end
     end

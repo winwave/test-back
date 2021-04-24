@@ -50,18 +50,18 @@ Create new user with the pseudo in the payload
 ### `GET /api/v1/users`
 Retrieve all users in the database, we don't need to open database to check the result of the creation user.
 
-### Architecture
+## Architecture
 - Swagger for the document and test API
 - Rubocop for the code formatter
 - Concerns
 - Complexity `O(log(n))` with the binary search algorithm
 
-#### Solution for the research a pseudo available
+### Solution for the research a pseudo available
 This is the main problem in this test and It's so interesting.
 
 There are many solutions for that, but the performance and the complexity are not the same.
 
-##### 1. Store data
+#### 1. Store data
 
 This is the first solution that I thought when I saw the test.
 
@@ -73,7 +73,7 @@ So, we can check if a pseudo is available or not and find a new pseudo available
 
 This solution is not good, it creates too many volumes in the database and in the case pseudo has 4, 5 or 6... letter we have to insert so many lines.
 
-##### 2. Basic loop
+#### 2. Basic loop
 
 This is the basic solution, the complexity to find a pseudo available is `O(n^3)` 
 
@@ -88,7 +88,7 @@ end
 ```
 This solution is also not good
 
-##### 3. Vector 3 dimensions
+#### 3. Vector 3 dimensions
 
 A pseudo can be like a vector in the dimension 3D `O(x,y,z)` with the value in `Ox`, `Oy`, `Oz` is `[A...Z]` instead of `1, 2 ,...]`.
 ![vector](./vendor/readme_img/vertor.png)  
@@ -96,7 +96,7 @@ Each pseudo is a vector, We can use the notion vector in Math to find the pseudo
 
 Now, I don't have the solution for this idea, but for me it is an interesting idea and we can use it to find the pseudo near the pseudo exist.
 
-##### 4. Binary search
+#### 4. Binary search
 
 This is the solution which is used in the test.
 
