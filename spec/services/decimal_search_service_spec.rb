@@ -13,7 +13,6 @@ RSpec.describe DecimalSearchService do
     end
   end
 
-
   describe 'binary_search' do
     it "should return right value available" do
       arr = [703, 704, 707, 709]

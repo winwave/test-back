@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ConvertorService < ApplicationService
-
   AZ_ARRAY = ('A'..'Z').to_a
   AZ_LENGTH = AZ_ARRAY.length
 

@@ -14,7 +14,7 @@ class User < ApplicationRecord
   end
 
   def generate_decimal_index
-    decimal_index = ConvertorService.pseudo_to_decimal(self.pseudo)
+    decimal_index = ConvertorService.pseudo_to_decimal(pseudo)
 
     update(decimal_index: decimal_index)
   end
