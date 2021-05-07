@@ -3,6 +3,7 @@
 class DecimalSearchService < ApplicationService
   private
 
+  # AAA <=> 1+26^2 + 1*26 + 1 = 703, AAA is the first index in pseudo
   MIN_INDEX = 703
 
   def call
