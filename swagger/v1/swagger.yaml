@@ -42,7 +42,7 @@ paths:
                   pseudo:
                     type: string
                   decimal_index:
-                    type: decimal
+                    type: integer
                   created_at:
                     type: string
                   updated_at:

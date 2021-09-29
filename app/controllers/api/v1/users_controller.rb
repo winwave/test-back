@@ -11,14 +11,14 @@ class Api::V1::UsersController < ApplicationController
   def create
     if User.exists?(user_params)
       @user = User.new
-      @user.create_new_pseudo
+      @user.generate_new_pseudo
       message = "The #{user_params[:pseudo]} already exist but your registration was completed with auto generated pseudo #{@user[:pseudo]}. Do you want to modify it ?"
     else
       @user = User.new(user_params)
 
       return render json: { message: "Bad format of pseudo" }, status: :unprocessable_entity unless @user.valid?
 
-      @user.add_decimal_index(user_params[:pseudo])
+      @user.generate_decimal_index
       message = "your registration with pseudo #{user_params[:pseudo]} is now complete"
     end
 

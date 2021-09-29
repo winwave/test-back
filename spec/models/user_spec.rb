@@ -43,24 +43,18 @@ RSpec.describe User, type: :model do
   end
 
   describe "methods" do
-    it "should add decimal index" do
-      subject.add_decimal_index('AAA')
+    it "should generate decimal index" do
+      subject.pseudo = 'AAA'
+      subject.generate_decimal_index
 
       expect(subject.decimal_index).to eq(703)
     end
 
-    it "should create new pseudo" do
+    it "should generate new pseudo" do
       User.create(pseudo: 'AAA', decimal_index: 703)
-      subject.create_new_pseudo
+      subject.generate_new_pseudo
 
       expect(subject.pseudo).to_not be_nil
-    end
-
-    it "should find decimal index available" do
-      User.create(pseudo: 'AAA', decimal_index: 703)
-      dec_index = subject.find_decimal_index_available
-
-      expect(dec_index).to_not eq(703)
     end
   end
 end
